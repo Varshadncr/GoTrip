@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="goTripApp">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="tour.css" />
+    <title>Go Trip</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body ng-controller="MainController" class="bg">
+
+    <!-- Nav Bar -->
+    <section class="nav-bar">
+        <div class="logo">Go Trip</div>
+        <ul class="menu">
+            <li><a href="#Sectionhome">home</a></li>
+            <li><a href="#Sectionpackage">package</a></li>
+            <li><a href="#sectionaboutus">about us</a></li>
+            <li><a href="#sectioncontactus">contact us</a></li>
+        </ul>
+    </section>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-text-item" id="Sectionhome">
+            <div class="banner-heading">
+                <h1>Find your Next tour!</h1>
+            </div>
+            <form class="form">
+                <input type="text" list="mylist" placeholder="Where would you like to go?" ng-model="selectedDestination">
+                <datalist id="mylist">
+                    <option ng-repeat="destination in destinations">{{destination}}</option>
+                </datalist>
+                <input type="date" class="date" ng-model="selectedDate">
+                <a href="#" class="book" ng-click="bookTrip()">book</a>
+            </form>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" >
+        <div class="service-item" ng-repeat="service in services">
+            <img ng-src="{{service.image}}">
+            <h2>{{service.title}}</h2>
+        </div>
+    </section>
+
+    <!-- Places -->
+    <!-- First set of places -->
+<section class="places" id="Sectionpackage">
+    <!-- Place Cards -->
+    <div class="cards">
+        <div class="card" ng-repeat="place in places1">
+            <div class="zoom-img">
+                <div class="img-card">
+                    <img ng-src="{{place.image}}">
+                </div>
+            </div>
+            <div class="text">
+                <span class="rating">{{place.rating}}</span>
+                <h2>{{place.title}}</h2>
+                <p class="cost">{{place.cost}}</p>
+                <div class="card-box">
+                    <p class="time">{{place.duration}}</p>
+                    <p class="location">✈ Jindal Vijaynagar Airport<a href="{{place.mapLink}}" target="_blank"> Live Location Map</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Second set of places -->
+<section class="places">
+    <!-- Place Cards -->
+    <div class="cards">
+        <div class="card" ng-repeat="place in places2">
+            <div class="zoom-img">
+                <div class="img-card">
+                    <img ng-src="{{place.image}}">
+                </div>
+            </div>
+            <div class="text">
+                <span class="rating">{{place.rating}}</span>
+                <h2>{{place.title}}</h2>
+                <p class="cost">{{place.cost}}</p>
+                <div class="card-box">
+                    <p class="time">{{place.duration}}</p>
+                    <p class="location">✈ Hubballi  Airport<a href="{{place.mapLink}}" target="_blank">Live Location Map</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- First set of places -->
+<section class="places">
+    <!-- Place Cards -->
+    <div class="cards">
+        <div class="card" ng-repeat="place in places3">
+            <div class="zoom-img">
+                <div class="img-card">
+                    <img ng-src="{{place.image}}">
+                </div>
+            </div>
+            <div class="text">
+                <span class="rating">{{place.rating}}</span>
+                <h2>{{place.title}}</h2>
+                <p class="cost">{{place.cost}}</p>
+                <div class="card-box">
+                    <p class="time">{{place.duration}}</p>
+                    <p class="location">✈  Mysore Airport<a href="{{place.mapLink}}" target="_blank">Live Location Map</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Second set of places -->
+<section class="places">
+    <!-- Place Cards -->
+    <div class="cards">
+        <div class="card" ng-repeat="place in places4">
+            <div class="zoom-img">
+                <div class="img-card">
+                    <img ng-src="{{place.image}}">
+                </div>
+            </div>
+            <div class="text">
+                <span class="rating">{{place.rating}}</span>
+                <h2>{{place.title}}</h2>
+                <p class="cost">{{place.cost}}</p>
+                <div class="card-box">
+                    <p class="time">{{place.duration}}</p>
+                    <p class="location">✈  Bengaluru Airport<a href="{{place.mapLink}}" target="_blank">Live Location Map</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- About Us -->
+    <section class="about" id="sectionaboutus">
+        <div class="about-img">
+            <img src="https://res.cloudinary.com/dmcudqcpp/image/upload/v1708525920/travel-agency-tourism-app-and-trips-logo-emblem-design-on-white-background-vector_xsuziy.jpg">
+        </div>
+        <div class="about-text">
+            <small>ABOUT OUR COMPANY</small>
+            <h2>We are Go Trip Ravels Support Company</h2>
+            <p>{{aboutText}}</p>
+            <a href="#Sectionhome">make  my trip</a>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+  
+       
+        <div id="sectioncontactus" class=" contactus">
+            <h3  class="contactcont">contact Us</h3>
+            <div class="  social-links text-center " >
+                <ul class="list-inline mt-5">
+                    <li class="list-inline-item"><a href="https://www.instagram.com/" target="-blank"><i class="fa fa-instagram social-icon" aria-hidden="true"></i></a></li>
+                    <li class="list-inline-item"><a href="https://twitter.com/i/flow/login" target="-blank"><i class="fa fa-twitter social-icon" aria-hidden="true"></i></a></li>
+                    <li class="list-inline-item"><a href="https://in.linkedin.com/" target="-blank"><i class="fa fa-linkedin social-icon" aria-hidden="true"></i></a></li>
+                    <li class="list-inline-item"><a href="mailto:cadarshac@gmail.com" target="-blank"><i class="fa fa-envelope social-icon" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+     
+
+    <!-- AngularJS Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module('goTripApp', []);
+
+        app.controller('MainController', function ($scope) {
+            // Data for rendering
+            
+            $scope.services = [
+                { title: "8000+ Our Local Guides", image: "https://res.cloudinary.com/dmcudqcpp/image/upload/v1708525026/What-Are-Google-Local-Guides_jyzzds.png" },
+                { title: "100% Trusted Tour Agency", image: "https://res.cloudinary.com/dmcudqcpp/image/upload/v1708525141/tour-operator-activities-flat-icons-260nw-513678430_fsmbzh.jpg" },
+                { title: "28+ Years of Travel Experience", image: "https://res.cloudinary.com/dmcudqcpp/image/upload/v1708525246/Road-Trip-from-Bangalore-9-1528939673-large_nxcev8.jpg" },
+                { title: "98% Our Travelers are Happy", image: "https://res.cloudinary.com/dmcudqcpp/image/upload/v1708525422/WhatsApp_Image_2024-02-21_at_19.52.21_3e7e7b70_rwkret.jpg" }
+            ];
+            $scope.places1 = [
+    { 
+        title: "Vijyanagara",
+        rating: "⭐⭐⭐⭐⭐",
+        cost: "10Kms at Rs. 300",
+        location: "✈ Jindal Vijaynagar Airport",
+        image: "https://res.cloudinary.com/dmcudqcpp/image/upload/v1708520907/170828123725-hampi-stone-chariott-vittala-temple_ghoshy.jpg",
+        mapLink: "http://tinyurl.com/vijaynagarairport"
+    },
+    // Repeat for other places
+];
+
+            $scope.places2 = [
+                { title: "Baglkot", rating: "⭐⭐⭐⭐⭐", cost: "10Kms at Rs. 300",  location: "✈ Hubballi Airport", image: "https://res.cloudinary.com/dmcudqcpp/image/upload/v1708524605/bhuthanatha-temple_ypbz5i.jpg" ,  mapLink: "http://tinyurl.com/huballiairport"},
+                // Repeat for other places
+            ];
+            $scope.places3 = [
+                { title: "Mysore", rating: "⭐⭐⭐⭐⭐", cost: "10Kms at Rs. 300",  location: "✈ Mandakalli Airport", image: "https://res.cloudinary.com/dmcudqcpp/image/upload/v1708523903/mysore-palace-gettyimages-1217318496-1000x3000_zjqbqa.jpg", mapLink: "http://tinyurl.com/mysoresirport" },
+                // Repeat for other places
+            ];
+            $scope.places4 = [
+                { title: "Bengaluru", rating: "⭐⭐⭐⭐⭐", cost: "10Kms at Rs. 300",  location: "✈ Kempegowda International Airport", image: "https://res.cloudinary.com/dmcudqcpp/image/upload/v1708524002/Vidhana-Soudha-Bengaluru-Karnataka-India_idka86.jpg" , mapLink: "http://tinyurl.com/bengaluruairport"},
+                // Repeat for other places
+            ];
+            $scope.aboutText ="At Go Trip, we are passionate about curating unforgettable travel experiences for our clients. With over two decades of industry expertise, we pride ourselves on being a trusted name in the travel business. Our dedicated team of professionals ensures personalized service, attention to detail, and seamless execution of travel plans. From breathtaking destinations to tailor-made itineraries, we strive to exceed expectations and create memories that last a lifetime. Discover the world with Go Trip and embark on a journey filled with adventure, relaxation, and discovery.";
+            $scope.quickLinks = ["Offers & Discounts", "Get Coupon", "About"];
+            
+            $scope.supportLinks = ["Frequently Asked Questions", "Report a Payment Issue", "Terms & Conditions", "Privacy Policy"];
+
+            // Functionality
+            $scope.bookTrip = function () {
+                // Logic for booking trip
+                alert("Booked Successful!");
+            };
+            $scope.navigateToMap = function () {
+                 alert("You are navigating to the map");
+           };
+
+        });
+    </script>
+</body>
+
+</html>
